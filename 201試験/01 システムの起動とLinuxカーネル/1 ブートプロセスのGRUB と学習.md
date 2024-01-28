@@ -18,8 +18,9 @@
 - UEFI(Unified Extensible Firmware Interface)
     - NVRAMのブートエントリに設定された優先順位に従い、EFIパーティション中のブートローダを起動する。
 
-#### GRUB2
-- GRUB Legacy(GRUB1)の後継となるブートローダ。
+#### GRUB
+- GRUB(GRand Unified Bootloader)
+- GRUB2はGRUB Legacy(GRUB1)の後継となるブートローダ。
 - boot.img、core.img、動的にロードされる複数のモジュールから構成される。
 - grub-install(またはgrub2-install)はGRUB2のインストールを行うコマンド。
     - grub-install /dev/sda
@@ -27,3 +28,5 @@
 - grub-mkconfig(またはgrub2-mkconfig)は設定ファイルの/boot/grub/grub.cfg（または/boot/grub2/grub.cfg）を生成するコマンド。
     - grub2-mkconfig > /boot/grub2/grub.cfg  
     - grub2-mkconfig -o /boot/grub2/grub.cfg
+
+#### UEFI
