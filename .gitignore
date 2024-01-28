@@ -1,0 +1,14 @@
+### Jetbrains
+.idea
+
+### Vim
+*.swp
+
+### Windows
+Thumbs.db
+
+### Mac
+.DS_Store
+
+# for empty dir
+!.gitkeep
