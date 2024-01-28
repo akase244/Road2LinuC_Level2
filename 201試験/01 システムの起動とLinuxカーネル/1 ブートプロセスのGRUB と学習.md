@@ -22,7 +22,7 @@
 - GRUB(GRand Unified Bootloader)
 - GRUB2はGRUB Legacy(GRUB1)の後継となるブートローダ。
 - boot.img、core.img、動的にロードされる複数のモジュールから構成される。
-- grub-install(またはgrub2-install)はGRUB2のインストールを行うコマンド。
+- grub-install(またはgrub2-install)はインストールを行うコマンド。
     - grub-install /dev/sda
     - grub2-install /dev/sda
 - grub-mkconfig(またはgrub2-mkconfig)は設定ファイルの/boot/grub/grub.cfg（または/boot/grub2/grub.cfg）を生成するコマンド。
