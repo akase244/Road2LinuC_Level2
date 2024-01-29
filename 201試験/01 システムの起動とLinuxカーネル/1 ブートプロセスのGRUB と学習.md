@@ -75,11 +75,6 @@
 - 破損したMBRを修復する方法
     - grub-installを実行する。
     - MBRのバックアップを元にddで上書きする。
-- 関連リンク
-    - https://linuc.org/study/samples/1184/
-    - https://linuc.org/study/samples/3104/
-    - https://linuc.org/study/samples/3422/
-    - https://gihyo.jp/admin/serial/01/ubuntu-recipe/0743
 
 #### カーネル
 - カーネルの起動時のメッセージはカーネル内の循環バッファ(リングバッファ)と呼ばれる領域に格納される。
@@ -112,3 +107,10 @@
 - 初期RAMディスクの内容を確認するコマンド
     - lsinitrd
     - lsinitramfs
+
+#### systemd
+
+#### 練習問題
+- https://linuc.org/study/samples/1184/
+- https://linuc.org/study/samples/3104/
+- https://linuc.org/study/samples/3422/
