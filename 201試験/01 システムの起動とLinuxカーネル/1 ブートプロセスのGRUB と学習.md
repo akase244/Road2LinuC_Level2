@@ -70,7 +70,8 @@
     - grub2-mkconfig -o /boot/grub2/grub.cfg
     - 設定内容を変更する場合は/etc/default/grubを編集し、grub-mkconfig(またはgrub2-mkconfig)を実行する。
     - grub.cfgを直接編集しない点に注意する。
-- システム起動時に表示されるGRUBメニュー画面で「e」キーを入力するとGRUBメニューの編集をすることができる。
+- システム起動時に表示されるGRUBの画面で「e」キーを入力するとメニューの編集ができる。
+- システム起動時に表示されるGRUBの画面で「c」キーを入力するとGRUBシェルを起動してコマンドラインモードとなり対話的な操作ができる。
 - 破損したMBRを修復する方法
     - grub-installを実行する。
     - MBRのバックアップを元にddで上書きする。
@@ -99,6 +100,8 @@
     - initramfs
         - cpioアーカイブをgzip圧縮したもの。
         - initramfs.imgはシステム起動時にメモリに読み込まれる小さなルートファイルシステム。
+        - initramfsがルート(/)ディレクトリにマウントされた後、/initコマンドが実行される。
+        - /initは/usr/lib/systemd/systemdへのシンボリックリンク。
 - 初期RAMディスクを作成するコマンド
     - mkinitrd
         - 互換性のためmkinitrdの中でdracutが呼び出されて実行される。
