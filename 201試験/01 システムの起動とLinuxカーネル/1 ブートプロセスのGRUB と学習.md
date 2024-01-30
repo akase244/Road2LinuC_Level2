@@ -109,6 +109,26 @@
     - lsinitramfs
 
 #### systemd
+- シングルユーザモード
+    - メンテナンスのためのモード。
+    - 基本的なデーモンと限定されたサービスのみが稼働する。
+    - rootのみがログインできる。
+    - GRUBメニューで「systemd.unit=rescure.target」を指定する。
+    - /etc/fstabを参照してファイルシステムをマウントし、スワップの記述があれば有効化する。
+- メンテナンスを行う方法
+    - シングルユーザモード(rescure.target)へ移行する。
+        - rootのパスワード入力を求められる。 
+    - 緊急モード(emergency.target)へ移行する。
+        - rootのパスワード入力を求められる。
+        - systemd-udevデーモンのみが起動する。
+        - サービスは起動しない。
+        - /etc/fstabは参照しない。
+        - ルートファイルシステム以外はマウントしない。
+        - スワップ領域は有効化されない。
+    - systemd(/sbin/init)ではなく/bin/bashを起動する。
+        - GRUBメニューで「init=/bin/bash」を指定する。
+        - systemdは起動しない。
+        - rootのパスワードを忘れた場合に利用する。
 
 #### 練習問題
 - https://linuc.org/study/samples/1184/
