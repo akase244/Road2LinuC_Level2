@@ -109,18 +109,19 @@
     - lsinitramfs
 
 #### systemd
-- シングルユーザモード
-    - メンテナンスのためのモード。(レスキューモード)
-    - 基本的なデーモンと限定されたサービスのみが稼働する。
-    - ネットワークに接続されない。
-    - rootのみがログインできる。
-    - GRUBメニューで「systemd.unit=rescure.target」を指定する。
-    - /etc/fstabを参照してファイルシステムをマウントし、スワップの記述があれば有効化する。
+- systemdはSysV initに代わる仕組み。
+- /sbin/systemdは/sbin/initとリンクされた同じプログラムでPIDには1が割り当てられる。
 - メンテナンスを行う方法
     - シングルユーザモード(rescure.target)へ移行する。
-        - rootのパスワード入力を求められる。 
+        - メンテナンスのためのモード。(レスキューモード)
+        - 基本的なデーモンと限定されたサービスのみが稼働する。
+        - ネットワークに接続されない。
+        - rootのみがログインできる。
+        - rootのパスワード入力が求められる。
+        - GRUBメニューで「systemd.unit=rescure.target」を指定する。
+        - /etc/fstabを参照してファイルシステムをマウントし、スワップの記述があれば有効化する。
     - 緊急モード(emergency.target)へ移行する。
-        - rootのパスワード入力を求められる。
+        - rootのパスワード入力が求められる。
         - systemd-udevデーモンのみが起動する。
         - サービスは起動しない。
         - /etc/fstabは参照しない。
@@ -130,6 +131,27 @@
         - GRUBメニューで「init=/bin/bash」を指定する。
         - systemdは起動しない。
         - rootのパスワードを忘れた場合に利用する。
+- ユニット(Unit)
+    - システムの起動処理は多数のUnitと呼ばれる処理単位に分かれている。
+    - Unitの主な種類
+        - service
+        - device
+        - mount
+        - swap
+        - target
+            - SysV initのランレベルに相当。
+            - ランレベル0
+                - poweroff.target
+            - ランレベル1
+                - rescue.target
+            - ランレベル2,3,4
+                - multi-user.target
+            - ランレベル5
+                - graphical.target
+            - ランレベル6
+                - reboot.target
+        - socket
+        - timer
 
 #### 練習問題
 - https://linuc.org/study/samples/1184/
