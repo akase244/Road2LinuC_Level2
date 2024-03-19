@@ -133,6 +133,7 @@
         - rootのパスワードを忘れた場合に利用する。
 - ユニット(Unit)
     - システムの起動処理は多数のUnitと呼ばれる処理単位に分かれている。
+    - 全部で12種類
     - Unitの主な種類
         - service
         - device
@@ -140,6 +141,13 @@
         - swap
         - target
             - SysV initのランレベルに相当。
+            - システム起動時に default.taget というUnitが処理される。
+            - /etc/systemd/system/default.taget はシンボリックリンクになっている。
+              ```
+              $ ll /etc/systemd/system/default.target
+              lrwxrwxrwx 1 root root 36  1月 23  2022 /etc/systemd/system/default.target -> /lib/systemd/system/graphical.target
+              ```
+            - lnコマンドで default.taget へのシンボリックリンクを張り替えるか、 `systemctl set-default graphical.target` で切り替えられる。
             - ランレベル0
                 - poweroff.target
             - ランレベル1
