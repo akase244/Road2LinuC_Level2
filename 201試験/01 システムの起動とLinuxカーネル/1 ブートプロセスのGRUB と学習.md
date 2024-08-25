@@ -75,6 +75,11 @@
 - 破損したMBRを修復する方法
     - grub-installを実行する。
     - MBRのバックアップを元にddで上書きする。
+- システム起動後に起動オプションを確認するには /proc/cmdline を参照する。
+  ```
+  $ cat /proc/cmdline 
+  BOOT_IMAGE=/vmlinuz-6.8.0-40-generic root=/dev/mapper/vgubuntu-root ro quiet splash vt.handoff=7
+  ``` 
 
 #### カーネル
 - カーネルの起動時のメッセージはカーネル内の循環バッファ(リングバッファ)と呼ばれる領域に格納される。
