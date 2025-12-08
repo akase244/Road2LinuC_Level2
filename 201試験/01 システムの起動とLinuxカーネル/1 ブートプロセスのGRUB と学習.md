@@ -5,7 +5,7 @@
 2. OS起動用ファームウェア(BIOS/UEFI)
 3. ブートローダ(GRUB)
 4. カーネル
-5. initramfs
+5. 初期RAMディスク(initrd/initramfs)
 6. systemd(init)
 7. サービスの起動
 8. ログイン
@@ -112,6 +112,16 @@
 - 初期RAMディスクの内容を確認するコマンド
     - lsinitrd
     - lsinitramfs
+      ```
+      $ lsinitramfs /boot/initrd.img-$(uname -r)
+      .
+      kernel
+      kernel/x86
+      ・
+      ・
+      var/lib
+      var/lib/dhcp
+      ```
 
 #### 練習問題
 - https://linuc.org/study/samples/1184/
